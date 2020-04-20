@@ -39,8 +39,10 @@ extension POSIXDynamicSymbolInfo {
     }
     
     public var currentImage: POSIXDynamicSymbolInfo? {
-        var info = Dl_info(dli_fname: "", dli_fbase: nil, dli_sname: "", dli_saddr: nil)
+        var info = Dl_info(dli_fname: nil, dli_fbase: nil, dli_sname: nil, dli_saddr: nil)
+        
         dladdr(Thread.callStackReturnAddresses[1].pointerValue, &info)
+        
         return .init(info)
     }
 }
