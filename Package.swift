@@ -14,7 +14,7 @@ let package = Package(
         .library(name: "POSIX", targets: ["POSIX"])
     ],
     dependencies: [
-        .package(path: "../Swallow")
+        .package(url: "git@github.com:vmanot/Swallow", .branch("master"))
     ],
     targets: [
         .target(name: "POSIX", dependencies: ["Swallow"], path: "Sources")
