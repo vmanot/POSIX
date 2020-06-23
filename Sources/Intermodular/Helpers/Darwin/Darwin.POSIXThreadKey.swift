@@ -45,8 +45,8 @@ extension POSIXThread {
     }
     
     public static func setSpecificValue(_ newValue: UnsafeMutableRawPointer?, forKey key: POSIXThreadKey) throws {
-        return try key.withConstructedValue { value in
+        try key.withConstructedValue { (value: UnsafeMutablePointer<pthread_key_t>) in
             return pthread_setspecific(value.pointee, newValue)
-        }
+        }.toPOSIXResultCode()?.throwIfNecessary()
     }
 }
