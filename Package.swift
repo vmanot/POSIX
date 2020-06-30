@@ -17,7 +17,14 @@ let package = Package(
         .package(url: "git@github.com:vmanot/Swallow", .branch("master"))
     ],
     targets: [
-        .target(name: "POSIX", dependencies: ["Swallow"], path: "Sources")
+        .target(
+            name: "POSIX",
+            dependencies: ["Swallow"],
+            path: "Sources",
+            swiftSettings: [
+                .unsafeFlags(["-Onone"])
+            ]
+        )
     ],
     swiftLanguageVersions: [
         .version("5.1")
