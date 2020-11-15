@@ -37,7 +37,7 @@ extension POSIXMemoryMap {
     public func synchronize(synchronously: Bool = true, invalidateSharedMaps: Bool = false) throws {
         try msync(try baseAddress.unwrap().mutableRepresentation, count, (synchronously ? MS_SYNC : MS_ASYNC) ^ (invalidateSharedMaps ? MS_INVALIDATE : 0)).throwingAsPOSIXErrorIfNecessary()
     }
-
+    
     public func unmap() throws {
         try munmap(try baseAddress.unwrap().mutableRepresentation, count).throwingAsPOSIXErrorIfNecessary()
     }

@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 
 import PackageDescription
 
@@ -14,7 +14,7 @@ let package = Package(
         .library(name: "POSIX", targets: ["POSIX"])
     ],
     dependencies: [
-        .package(url: "git@github.com:vmanot/Swallow", .branch("master"))
+        .package(url: "https://github.com/vmanot/Swallow.git", .branch("master"))
     ],
     targets: [
         .target(
@@ -25,8 +25,5 @@ let package = Package(
                 .unsafeFlags(["-Onone"])
             ]
         )
-    ],
-    swiftLanguageVersions: [
-        .version("5.1")
     ]
 )
