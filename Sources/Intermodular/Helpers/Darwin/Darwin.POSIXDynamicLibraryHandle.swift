@@ -12,7 +12,7 @@ public final class POSIXDynamicLibraryHandle {
         self.value = value
     }
     
-    public static func open(at path: String, _ flag: Flag) throws -> POSIXDynamicLibraryHandle {
+    public static func open(at path: String, _ flag: Flag = .now) throws -> POSIXDynamicLibraryHandle {
         return .init(try dlopen(path, flag.rawValue).unwrapOrThrow(try Error.last.unwrap()))
     }
     
