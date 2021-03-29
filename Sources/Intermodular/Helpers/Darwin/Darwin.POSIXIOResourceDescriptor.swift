@@ -58,7 +58,7 @@ extension POSIXIOResourceDescriptor {
     }
 }
 
-// MARK: - Protocol Conformances -
+// MARK: - Conformances -
 
 extension POSIXIOResourceDescriptor: ExpressibleByIntegerLiteral {
     public init(integerLiteral value: RawValue) {

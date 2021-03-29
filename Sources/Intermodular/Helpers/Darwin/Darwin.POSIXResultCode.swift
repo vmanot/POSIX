@@ -44,7 +44,7 @@ extension POSIXResultCode {
     }
 }
 
-// MARK: - Protocol Conformances -
+// MARK: - Conformances -
 
 extension POSIXResultCode: RawRepresentable2 {
     public typealias RawValue = Int32
