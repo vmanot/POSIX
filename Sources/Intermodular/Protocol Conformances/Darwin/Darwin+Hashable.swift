@@ -10,4 +10,8 @@ extension timeval: Hashable {
         hasher.combine(tv_sec)
         hasher.combine(tv_usec)
     }
+    
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.tv_sec == rhs.tv_sec && rhs.tv_usec == rhs.tv_usec
+    }
 }
