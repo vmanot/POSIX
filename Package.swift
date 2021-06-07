@@ -20,10 +20,7 @@ let package = Package(
         .target(
             name: "POSIX",
             dependencies: ["Swallow"],
-            path: "Sources",
-            swiftSettings: [
-                .unsafeFlags(["-Onone"])
-            ]
+            path: "Sources"
         )
     ]
 )

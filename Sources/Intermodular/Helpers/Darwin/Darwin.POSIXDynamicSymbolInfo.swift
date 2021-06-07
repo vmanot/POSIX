@@ -17,7 +17,9 @@ public struct POSIXDynamicSymbolInfo: ImplementationForwardingMutableWrapper, In
 
     public init<Address: RawPointer>(_ address: Address)  {
         self.init()
-        dladdr(.init(address), &value)
+        
+        // FIXME!!!
+        // dladdr(.init(address), &value)
     }
 }
 
