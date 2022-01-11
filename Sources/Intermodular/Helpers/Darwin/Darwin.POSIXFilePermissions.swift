@@ -33,7 +33,7 @@ public struct POSIXFilePermissionBits: Codable, CustomStringConvertible, OptionS
     }
 }
 
-public struct POSIXFilePermissions: OptionSet2 {
+public struct POSIXFilePermissions: OptionSet {
     public typealias RawValue = mode_t
     
     public static let userReadable = with(rawValue: S_IRUSR)

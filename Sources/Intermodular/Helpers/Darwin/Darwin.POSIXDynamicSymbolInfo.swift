@@ -14,12 +14,11 @@ public struct POSIXDynamicSymbolInfo: ImplementationForwardingMutableWrapper, In
     public init(_ value: Value) {
         self.value = value
     }
-
+    
     public init<Address: RawPointer>(_ address: Address)  {
         self.init()
         
-        // FIXME!!!
-        // dladdr(.init(address), &value)
+        dladdr(UnsafeRawPointer(address), &value)
     }
 }
 
@@ -27,7 +26,7 @@ extension POSIXDynamicSymbolInfo {
     public var baseAddressOfSharedObject: UnsafeMutableRawPointer? {
         return value.dli_fbase
     }
-
+    
     public var pathNameOfSharedObject: NullTerminatedUTF8String? {
         return value.dli_fname.map(NullTerminatedUTF8String.init)
     }

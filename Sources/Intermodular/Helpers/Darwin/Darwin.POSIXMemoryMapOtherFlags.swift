@@ -5,7 +5,7 @@
 import Darwin
 import Swallow
 
-public struct POSIXMemoryMapOtherFlags: Initiable, OptionSet2 {
+public struct POSIXMemoryMapOtherFlags: Initiable, OptionSet {
     public typealias RawValue = Int32
     
     public static let fixed = with(rawValue: MAP_FIXED)
