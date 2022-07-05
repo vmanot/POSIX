@@ -6,13 +6,17 @@ import Darwin
 import Foundation
 import Swallow
 
-public struct POSIXDynamicSymbolInfo: ImplementationForwardingMutableWrapper, Initiable {
+public struct POSIXDynamicSymbolInfo: Initiable {
     public typealias Value = Dl_info
     
     public var value: Value
     
     public init(_ value: Value) {
         self.value = value
+    }
+    
+    public init() {
+        self.value = .init()
     }
     
     public init<Address: RawPointer>(_ address: Address)  {

@@ -5,7 +5,7 @@
 import Darwin
 import Swallow
 
-public struct POSIXMemoryMap: BufferPointer, ImplementationForwardingWrapper {
+public struct POSIXMemoryMap {
     public typealias BaseAddressPointer = Value.BaseAddressPointer
     public typealias Element = Value.Element
     public typealias Index = Value.Index
@@ -15,6 +15,14 @@ public struct POSIXMemoryMap: BufferPointer, ImplementationForwardingWrapper {
     public typealias Value = UnsafeRawBufferPointer
     
     public let value: Value
+    
+    public var baseAddress: BaseAddressPointer? {
+        value.baseAddress
+    }
+    
+    public var count: Int {
+        value.count
+    }
     
     public init(_ value: Value) {
         self.value = value

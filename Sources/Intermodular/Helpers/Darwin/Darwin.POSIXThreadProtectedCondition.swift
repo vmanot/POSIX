@@ -5,7 +5,7 @@
 import Darwin
 import Swallow
 
-public struct POSIXThreadProtectedCondition: POSIXSynchronizationPrimitive, ImplementationForwardingMutableWrapper, Initiable {
+public struct POSIXThreadProtectedCondition: POSIXSynchronizationPrimitive, Initiable {
     public typealias Value = (protectee: POSIXThreadCondition, protector: POSIXThreadMutex)
     
     public var value: Value

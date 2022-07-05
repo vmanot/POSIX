@@ -5,7 +5,7 @@
 import Darwin
 import Swallow
 
-public struct POSIXThreadStack: BufferPointer, ImplementationForwardingWrapper {
+public struct POSIXThreadStack {
     public typealias BaseAddressPointer = Value.BaseAddressPointer
     public typealias Element = Value.Element
     public typealias Index = Value.Index
@@ -13,15 +13,15 @@ public struct POSIXThreadStack: BufferPointer, ImplementationForwardingWrapper {
     public typealias Iterator = Value.Iterator
     public typealias SubSequence = Value.SubSequence
     public typealias Value = UnsafeRawBufferPointer
-
+    
     public let value: Value
-
+    
     public init(_ value: Value) {
         self.value = value
     }
 }
 
-// MARK: - Helpers - 
+// MARK: - Helpers -
 
 extension POSIXThread {
     public var stack: POSIXThreadStack? {
@@ -40,7 +40,7 @@ extension POSIXThreadAttributes {
                 .mutableRepresentation
                 .assumingMemoryBound(to: <<infer>>))
                 .map({ try! pthread_realize(pthread_attr_setstackaddr, with: self, $0) })
-
+            
             try! pthread_realize(pthread_attr_setstacksize, with: self, newValue.value.count)
         }
     }

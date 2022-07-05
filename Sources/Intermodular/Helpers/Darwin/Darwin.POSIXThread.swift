@@ -114,10 +114,13 @@ extension POSIXThread: Named {
             return .init()
         }
 
-        return String(managedUTF8String: UnsafeRawBufferPointer.allocate(capacity: 64)
-            .applyingSelfOn({
-                try! pthread_getname_np(value, $0.baseAddress!.mutableRepresentation.assumingMemoryBound(to: <<infer>>), $0.count).throwingAsPOSIXErrorIfNecessary()
-            }).baseAddress).initializedIfNil
+        return String(
+            managedUTF8String: UnsafeRawBufferPointer.allocate(capacity: 64)
+                .applyingSelfOn({
+                    try! pthread_getname_np(
+                        value, $0.baseAddress!.mutableRepresentation.assumingMemoryBound(to: <<infer>>), $0.count).throwingAsPOSIXErrorIfNecessary()
+                }).baseAddress
+        ) ?? String()
     }
 
     public static var name: String {
