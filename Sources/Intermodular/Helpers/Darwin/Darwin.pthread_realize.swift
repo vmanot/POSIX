@@ -7,11 +7,11 @@ import Swallow
 
 public func pthread_realize<T, U>(_ f: ((UnsafePointer<T>, UnsafeMutablePointer<U>) -> Int32), with x: POSIXIndirect<T>) throws -> U where T: Trivial {
     return try x.withConstructedValue { value in
-        try UnsafeMutablePointer<U>
-            .allocate(capacity: 1)
-            .applyingSelfOn({
-                try f(value, $0).throwingAsPOSIXErrorIfNecessary()
-            }).remove()
+        let pointer = UnsafeMutablePointer<U>.allocate(capacity: 1)
+        
+        try f(value, pointer).throwingAsPOSIXErrorIfNecessary()
+        
+        return pointer.remove()
     }
 }
 
