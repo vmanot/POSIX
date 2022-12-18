@@ -5,7 +5,7 @@
 import Darwin
 import Swallow
 
-public enum POSIXMemoryMapType: RawRepresentable2 {
+public enum POSIXMemoryMapType: RawRepresentable {
     public typealias RawValue = Int32
 
     case file
@@ -33,7 +33,7 @@ public enum POSIXMemoryMapType: RawRepresentable2 {
     }
 }
 
-public enum POSIXMemoryMapAccessControl: Initiable, RawRepresentable2 {
+public enum POSIXMemoryMapAccessControl: Initiable, RawRepresentable {
     public typealias RawValue = Int32
 
     case shared

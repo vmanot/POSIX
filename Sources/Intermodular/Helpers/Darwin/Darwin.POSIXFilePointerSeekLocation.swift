@@ -6,7 +6,7 @@ import Darwin
 import Swallow
 
 extension POSIXFilePointer {
-    public enum SeekLocation: RawRepresentable2 {
+    public enum SeekLocation: RawRepresentable {
         public typealias RawValue = Int32
         
         case none

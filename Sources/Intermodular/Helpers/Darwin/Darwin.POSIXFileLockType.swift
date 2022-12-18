@@ -5,7 +5,7 @@
 import Darwin
 import Swallow
 
-public enum POSIXFileLockType: RawRepresentable2 {
+public enum POSIXFileLockType: RawRepresentable {
     public typealias RawValue = Int16
     
     case sharedOrRead

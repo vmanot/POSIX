@@ -46,7 +46,7 @@ extension POSIXResultCode {
 
 // MARK: - Conformances -
 
-extension POSIXResultCode: RawRepresentable2 {
+extension POSIXResultCode: RawRepresentable {
     public typealias RawValue = Int32
 
     public var rawValue: RawValue {
@@ -62,9 +62,9 @@ extension POSIXResultCode: RawRepresentable2 {
 
     public init?(rawValue: RawValue) {
         switch rawValue {
-        case _Self.success.rawValue:
+        case Self.success.rawValue:
             self = .success
-        case _Self.failure.rawValue:
+        case Self.failure.rawValue:
             self = .failure
 
         default: do {

@@ -6,7 +6,7 @@ import Darwin
 import Foundation
 import Swallow
 
-public struct POSIXIOResourceDescriptor: RawRepresentable2 {
+public struct POSIXIOResourceDescriptor: RawRepresentable {
     public typealias RawValue = CInt
     
     public internal(set) var rawValue: RawValue

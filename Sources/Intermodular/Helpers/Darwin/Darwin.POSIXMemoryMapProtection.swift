@@ -5,7 +5,7 @@
 import Darwin
 import Swallow
 
-public struct POSIXMemoryMapProtection: RawRepresentable2 {
+public struct POSIXMemoryMapProtection: RawRepresentable {
     public typealias RawValue = Int32
     
     public let rawValue: RawValue
