@@ -30,7 +30,7 @@ extension POSIXThread: POSIXSynchronizationPrimitive {
         
         routine()
         
-        Unmanaged<AnyObject>.release(-*>$0)
+        Unmanaged<AnyObject>.release(unsafeBitCast($0, to: AnyObject.self))
         
         return nil
     }
@@ -44,7 +44,7 @@ extension POSIXThread: POSIXSynchronizationPrimitive {
     ) throws {
         let block: (@convention(block) () -> ()) = { parameters.routine() }
         
-        Unmanaged<AnyObject>.retain(-*>block)
+        Unmanaged<AnyObject>.retain(unsafeBitCast(block, to: AnyObject.self))
         
         try pthread_try({ pthread_create(&value, parameters.attributes.value, POSIXThread.startRoutineWithObjCBlock, unsafeBitCast(block)) })
     }
