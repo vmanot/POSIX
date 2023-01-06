@@ -37,12 +37,14 @@ extension POSIXThread: POSIXSynchronizationPrimitive {
         throw EmptyError()
     }
 
-    public mutating func construct(with parameters: (attributes: POSIXThreadAttributes, routine: AnyFunction<Void, Void>)) throws {
-        let block: (@convention(block) () -> ()) = { parameters.routine.value(()) }
+    public mutating func construct(
+        with parameters: (attributes: POSIXThreadAttributes, routine: () -> Void)
+    ) throws {
+        let block: (@convention(block) () -> ()) = { parameters.routine() }
 
         Unmanaged<AnyObject>.retain(-*>block)
 
-        try pthread_try({ pthread_create(&value, parameters.attributes.value, POSIXThread.startRoutineWithObjCBlock, -*>block) })
+        try pthread_try({ pthread_create(&value, parameters.attributes.value, POSIXThread.startRoutineWithObjCBlock, unsafeBitCast(block)) })
     }
 
     public mutating func destruct() throws {
