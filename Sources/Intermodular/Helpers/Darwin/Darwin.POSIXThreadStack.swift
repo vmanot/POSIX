@@ -34,12 +34,14 @@ extension POSIXThreadAttributes {
         get {
             return .init(.init(start: try! pthread_realize(pthread_attr_getstackaddr, with: self), count: try! pthread_realize(pthread_attr_getstacksize, with: self)))
         } set {
-            _ = (newValue
-                .value
-                .baseAddress?
-                .mutableRepresentation
-                .assumingMemoryBound(to: <<infer>>))
-                .map({ try! pthread_realize(pthread_attr_setstackaddr, with: self, $0) })
+            _ = (
+                newValue
+                    .value
+                    .baseAddress?
+                    .mutableRepresentation
+                    .assumingMemoryBound(to: pthread_attr_t.self)
+            )
+            .map({ try! pthread_realize(pthread_attr_setstackaddr, with: self, $0) })
             
             try! pthread_realize(pthread_attr_setstacksize, with: self, newValue.value.count)
         }

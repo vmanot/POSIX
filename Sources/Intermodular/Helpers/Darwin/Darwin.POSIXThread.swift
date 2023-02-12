@@ -121,7 +121,7 @@ extension POSIXThread: Named {
         let utf8String = UnsafeRawBufferPointer.allocate(capacity: 64)
         
         try! pthread_getname_np(
-            value, utf8String.baseAddress!.mutableRepresentation.assumingMemoryBound(to: <<infer>>), utf8String.count).throwingAsPOSIXErrorIfNecessary()
+            value, utf8String.baseAddress!.mutableRepresentation.assumingMemoryBound(to: CChar.self), utf8String.count).throwingAsPOSIXErrorIfNecessary()
         
         return String(managedUTF8String: utf8String.baseAddress) ?? String()
     }

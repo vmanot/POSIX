@@ -41,7 +41,7 @@ extension POSIXThreadKeyedValue {
 
         return try! POSIXThread
             .specificValue(forKey: key)!
-            .assumingMemoryBound(to: <<infer>>)
+            .assumingMemoryBound(to: Storage.self)
     }
 
     public var value: T {
