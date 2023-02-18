@@ -15,7 +15,7 @@ public struct POSIXDirectoryPointer: Wrapper {
     }
 }
 
-// MARK: - Extensions -
+// MARK: - Extensions
 
 extension POSIXDirectoryPointer {
     public init(path: String) throws {

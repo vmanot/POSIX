@@ -22,7 +22,7 @@ extension POSIXResultCode {
     }
 }
 
-// MARK: - Extensions -
+// MARK: - Extensions
 
 extension POSIXResultCode {
     public func promoteToError() -> Error? {
@@ -44,7 +44,7 @@ extension POSIXResultCode {
     }
 }
 
-// MARK: - Conformances -
+// MARK: - Conformances
 
 extension POSIXResultCode: RawRepresentable {
     public typealias RawValue = Int32
@@ -78,7 +78,7 @@ extension POSIXResultCode: RawRepresentable {
     }
 }
 
-// MARK: - Helpers -
+// MARK: - Helpers
 
 extension Optional {
     public func toPOSIXResult() -> Result<Wrapped, POSIXError>! {

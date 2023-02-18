@@ -20,7 +20,7 @@ extension POSIXMemoryLockTarget: OptionSet {
     public static let futurePages = with(rawValue: MCL_FUTURE)
 }
 
-// MARK: - Helpers -
+// MARK: - Helpers
 
 extension BufferPointer {
     public func lockRawMemoryIntoRAM() throws {

@@ -50,7 +50,7 @@ extension POSIXIOResourceDescriptor {
     }
 }
 
-// MARK: - Extensions - 
+// MARK: - Extensions 
 
 extension POSIXIOResourceDescriptor {
     public func map(length: Int, protection: POSIXMemoryMapProtection, accessControl: POSIXMemoryMapAccessControl = .private, flags: POSIXMemoryMapOtherFlags = [], offset: Int64 = 0) throws -> POSIXMemoryMap {
@@ -58,7 +58,7 @@ extension POSIXIOResourceDescriptor {
     }
 }
 
-// MARK: - Conformances -
+// MARK: - Conformances
 
 extension POSIXIOResourceDescriptor: ExpressibleByIntegerLiteral {
     public init(integerLiteral value: RawValue) {
@@ -66,7 +66,7 @@ extension POSIXIOResourceDescriptor: ExpressibleByIntegerLiteral {
     }
 }
 
-// MARK: - Helpers -
+// MARK: - Helpers
 
 extension FileHandle {
     public var rawValue: POSIXIOResourceDescriptor {

@@ -29,7 +29,7 @@ extension POSIXFileStatus {
     }
 }
 
-// MARK: - Helpers -
+// MARK: - Helpers
 
 extension POSIXIOResourceDescriptor {
     public func getFileStatus() throws -> POSIXFileStatus {

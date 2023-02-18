@@ -35,7 +35,7 @@ extension POSIXThreadKey {
     }
 }
 
-// MARK: - Helpers -
+// MARK: - Helpers
 
 extension POSIXThread {
     public static func specificValue(forKey key: POSIXThreadKey) throws -> UnsafeMutableRawPointer? {

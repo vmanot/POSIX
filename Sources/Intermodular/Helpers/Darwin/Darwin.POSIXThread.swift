@@ -98,7 +98,7 @@ extension POSIXThread {
     }
 }
 
-// MARK: - Conformances -
+// MARK: - Conformances
 
 extension POSIXThread: CustomStringConvertible {
     public var description: String {

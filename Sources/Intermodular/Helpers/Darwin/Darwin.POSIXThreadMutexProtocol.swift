@@ -13,7 +13,7 @@ public protocol POSIXThreadMutexProtocol {
     mutating func withCriticalScope<T>(_: (() -> T)) throws -> T
 }
 
-// MARK: - Implementation -
+// MARK: - Implementation
 
 extension POSIXThreadMutexProtocol {
     public mutating func withCriticalScope<T>(_ f: (() -> T)) throws -> T {

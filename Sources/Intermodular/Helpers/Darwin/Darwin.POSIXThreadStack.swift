@@ -21,7 +21,7 @@ public struct POSIXThreadStack {
     }
 }
 
-// MARK: - Helpers -
+// MARK: - Helpers
 
 extension POSIXThread {
     public var stack: POSIXThreadStack? {
