@@ -25,7 +25,7 @@ public struct POSIXThreadStack {
 
 extension POSIXThread {
     public var stack: POSIXThreadStack? {
-        return value.map({ .init(.init(start: reinterpretCast(pthread_get_stackaddr_np($0)), count: pthread_get_stacksize_np($0))) })
+        return value.map({ .init(.init(start: _reinterpretCast(pthread_get_stackaddr_np($0)), count: pthread_get_stacksize_np($0))) })
     }
 }
 

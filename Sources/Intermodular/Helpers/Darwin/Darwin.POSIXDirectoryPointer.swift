@@ -19,7 +19,7 @@ public struct POSIXDirectoryPointer: Wrapper {
 
 extension POSIXDirectoryPointer {
     public init(path: String) throws {
-        self.init(try (opendir(path) as Optional).toPOSIXResult().unwrap())
+        self.init(try (opendir(path) as Optional).toPOSIXResult().get())
     }
 }
 

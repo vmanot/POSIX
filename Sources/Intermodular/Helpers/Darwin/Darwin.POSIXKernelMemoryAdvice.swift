@@ -90,6 +90,6 @@ extension POSIXKernelMemoryAdvice: Hashable {
 extension BufferPointer {
     @inlinable
     public func input(kernelAdvice: POSIXKernelMemoryAdvice) {
-        posix_madvise(reinterpretCast(baseAddress), .init(count) * MemoryLayout<Element>.size, kernelAdvice.rawValue)
+        posix_madvise(_reinterpretCast(baseAddress), .init(count) * MemoryLayout<Element>.size, kernelAdvice.rawValue)
     }
 }

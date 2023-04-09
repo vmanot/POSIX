@@ -18,7 +18,7 @@ public struct POSIXFilePointer: Wrapper {
 
 extension POSIXFilePointer {
     public func getCharacters(count: Int32) throws -> NullTerminatedUTF8String {
-        return .init(try fgets(.allocate(capacity: numericCast(count) + 1), numericCast(count), value).toPOSIXResult().unwrap())
+        return .init(try fgets(.allocate(capacity: numericCast(count) + 1), numericCast(count), value).toPOSIXResult().get())
     }
 }
 

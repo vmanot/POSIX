@@ -31,7 +31,7 @@ public struct POSIXMemoryMap {
 
 extension POSIXMemoryMap {
     public init(length: IndexDistance, protection: POSIXMemoryMapProtection, accessControl: POSIXMemoryMapAccessControl = .init(), flags: POSIXMemoryMapOtherFlags = .init(), descriptor: POSIXIOResourceDescriptor, offset: Int64 = 0) throws {
-        let baseAddress = try Optional(mmap(nil, length, protection.rawValue, POSIXMemoryMapType.file.rawValue ^ accessControl.rawValue ^ flags.rawValue, descriptor.rawValue, offset)).toPOSIXResult().unwrap().immutableRepresentation
+        let baseAddress = try Optional(mmap(nil, length, protection.rawValue, POSIXMemoryMapType.file.rawValue ^ accessControl.rawValue ^ flags.rawValue, descriptor.rawValue, offset)).toPOSIXResult().get().immutableRepresentation
         
         self.init(.init(start: baseAddress, count: length))
     }

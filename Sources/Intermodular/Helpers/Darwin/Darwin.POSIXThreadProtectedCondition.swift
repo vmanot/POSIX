@@ -13,7 +13,7 @@ public struct POSIXThreadProtectedCondition: POSIXSynchronizationPrimitive, Init
     public init(_ value: Value) {
         self.value = value
     }
-
+    
     public init() {
         self.init((.init(), .init()))
     }
@@ -38,7 +38,7 @@ extension POSIXThreadProtectedCondition: POSIXThreadMutexProtocol  {
     public func acquireOrFail() throws {
         try value.protector.acquireOrFail()
     }
-
+    
     public func acquireOrBlock() throws {
         try value.protector.acquireOrBlock()
     }
@@ -59,11 +59,5 @@ extension POSIXThreadProtectedCondition {
     
     public func wait() throws {
         try self.value.protectee.wait(with: self.value.protector)
-    }
-    
-    public func wait(while predicate: @autoclosure () throws -> Bool) throws {
-        while try predicate() {
-            try wait()
-        }
     }
 }
